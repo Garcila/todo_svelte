@@ -1,5 +1,4 @@
 TODO
-Update by clicking on the todo itself
 Delete by clicking on an icon on the left or right
 Mark as completed but leave in place
 Mark as completed and move to completed todos
@@ -11,6 +10,7 @@ GraphQL
 Authentication Login/Sign up
 
 DONE
+✅ Update by clicking on the todo itself
 ✅ Code split
 ✅ Split todo list as did with the input
 
