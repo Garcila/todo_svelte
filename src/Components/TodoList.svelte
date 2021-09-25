@@ -1,7 +1,15 @@
 <script>
 	export let todos;
+	function updateTodo(todo) {
+		console.log(todo);
+		let changeTodo = todos.filter(t => t.id === todo.id);
+		changeTodo.name = todo.name;
+	}
 </script>
 
 {#each todos as todo (todo.id)}
-	<li>{todo.name}</li>
+	<input
+		bind:value={todo.name}
+		on:blur={updateTodo(todo)}
+	/>
 {/each}
