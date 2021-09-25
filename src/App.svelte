@@ -1,23 +1,16 @@
 <script>
+	import TodoInput from "./Components/TodoInput.svelte";
 	let newTodo = "";
 	let todos = ["a", "b"];
 
-	function addTodo() {
+	function addTodo(newTodo) {
 		todos = [...todos, newTodo];
-		newTodo = "";
 	}
 </script>
 
 <main>
 	<h1>TODO</h1>
-	<form id="todoForm" on:submit|preventDefault={addTodo}>
-		<input
-			type="text"
-			name="new-todo"
-			bind:value={newTodo}
-			placeholder="Add New Todo"
-		/>
-	</form>
+	<TodoInput {addTodo} {newTodo} />
 	<ul>
 		{#each todos as todo}
 			<li>{todo}</li>
