@@ -1,20 +1,26 @@
 <script>
-	import TodoInput from "./Components/TodoInput.svelte";
+	import InputTodo from "./Components/InputTodo.svelte";
+	import TodoList from "./Components/TodoList.svelte";
+	let newId = 4;
 	let newTodo = "";
-	let todos = ["a", "b"];
+	let todos = [
+		{ id: 1, name: "carrot" },
+		{ id: 2, name: "grape" },
+		{ id: 3, name: "cherry" },
+	];
 
 	function addTodo(newTodo) {
+		newId = newId + 1;
+		newTodo = { id: newId, name: newTodo };
 		todos = [...todos, newTodo];
 	}
 </script>
 
 <main>
 	<h1>TODO</h1>
-	<TodoInput {addTodo} {newTodo} />
+	<InputTodo {newTodo} {addTodo} />
 	<ul>
-		{#each todos as todo}
-			<li>{todo}</li>
-		{/each}
+		<TodoList {todos} />
 	</ul>
 </main>
 

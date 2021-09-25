@@ -1,11 +1,14 @@
 <script>
 	export let addTodo;
 	export let newTodo;
+	function resetForm() {
+		newTodo = "";
+	}
 </script>
 
 <form
 	id="todoForm"
-	on:submit|preventDefault={addTodo(newTodo, "")}
+	on:submit|preventDefault={(addTodo(newTodo), resetForm())}
 >
 	<input
 		type="text"
