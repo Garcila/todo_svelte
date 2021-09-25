@@ -1,7 +1,6 @@
 <script>
 	export let todos;
 	function updateTodo(todo) {
-		console.log(todo);
 		let changeTodo = todos.filter(t => t.id === todo.id);
 		changeTodo.name = todo.name;
 	}
