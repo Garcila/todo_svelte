@@ -1,5 +1,6 @@
 TODO
-Mark as completed but leave in place - completed, but I want the buttons inside the input.
+🏗 Mark as completed but leave in place - completed, but I want the buttons inside the input.
+
 Mark as completed and move to completed todos
 Add Store
 Add CSS fanciness to mark todos as completed

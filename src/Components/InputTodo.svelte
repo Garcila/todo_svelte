@@ -1,6 +1,7 @@
 <script>
 	export let addTodo;
 	export let newTodo;
+
 	function resetForm() {
 		newTodo = "";
 	}
