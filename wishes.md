@@ -1,5 +1,4 @@
 TODO
-🏗 Mark as completed but leave in place - completed, but I want the buttons inside the input.
 
 Mark as completed and move to completed todos
 Add Store
@@ -14,4 +13,5 @@ DONE
 ✅ Update by clicking on the todo itself
 ✅ Code split
 ✅ Split todo list as did with the input
+✅ Mark as completed but leave in place - line through
 

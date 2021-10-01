@@ -16,8 +16,9 @@
 			class={completed ? "completed" : ""}
 			on:blur={updateTodo(todo)}
 		/>
-		<button on:click={deleteTodo(todo)}>🗑</button>
-		<button on:click={e => strikeTodo(todo)}>👾</button>
+		<button on:click={e => strikeTodo(todo)}>&check;</button
+		>
+		<button on:click={deleteTodo(todo)}>&cross</button>
 	</span>
 {/each}
 
