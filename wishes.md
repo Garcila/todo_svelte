@@ -1,6 +1,7 @@
 TODO
 
-Mark as completed and move to completed todos
+🏗 Mark as completed and move to completed todos.  Moved to the second list and refactored code, but
+    need to set the ability to un-delete from the Deleted Todos
 Add Store
 Add CSS fanciness to mark todos as completed
 Save to localStorage
