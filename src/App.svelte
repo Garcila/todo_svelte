@@ -1,11 +1,27 @@
 <script>
 	import InputTodo from "./Components/InputTodo.svelte";
 	import TodoList from "./Components/TodoList.svelte";
+	import DeletedList from "./Components/DeletedList.svelte";
 
 	export let todos = [
-		{ id: 1, name: "carrot" },
-		{ id: 2, name: "grape" },
-		{ id: 3, name: "cherry" },
+		{
+			id: 1,
+			name: "carrot",
+			completed: false,
+			deleted: true,
+		},
+		{
+			id: 2,
+			name: "grape",
+			completed: false,
+			deleted: false,
+		},
+		{
+			id: 3,
+			name: "cherry",
+			completed: false,
+			deleted: false,
+		},
 	];
 
 	let newTodo = " ";
@@ -15,14 +31,14 @@
 		newId = newId + 1;
 		newTodo = { id: newId, name: newTodo };
 		todos = [...todos, newTodo];
-		console.log(todos);
 	}
 
 	function deleteTodo(todo) {
-		todos = todos.filter(t => t.id !== todo.id);
-		console.log(todos);
+		console.log(todo);
+		todo.deleted = todo.deleted === false ? true : false;
 		todos = todos;
 	}
+
 	function updateTodo(todo) {
 		let changeTodo = todos.filter(t => t.id === todo.id);
 		changeTodo.name = todo.name;
@@ -42,6 +58,15 @@
 	<InputTodo {addTodo} {newTodo} />
 	<ul>
 		<TodoList
+			{todos}
+			{deleteTodo}
+			{updateTodo}
+			{strikeTodo}
+			{todoObj}
+		/>
+		<hr />
+		<br />
+		<DeletedList
 			{todos}
 			{deleteTodo}
 			{updateTodo}

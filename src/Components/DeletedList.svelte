@@ -7,9 +7,9 @@
 	export let todoObj;
 </script>
 
-<h2>Active Todos</h2>
+<h2>Deleted Todos</h2>
 {#each todos as todo (todo.id)}
-	{#if !todo.deleted}
+	{#if todo.deleted}
 		<TodoItem
 			{todo}
 			{updateTodo}
