@@ -1,7 +1,6 @@
 TODO
+🏗
 
-🏗 Mark as completed and move to completed todos.  Moved to the second list and refactored code, but
-    need to set the ability to un-delete from the Deleted Todos
 Add Store
 Add CSS fanciness to mark todos as completed
 Save to localStorage
@@ -14,5 +13,6 @@ DONE
 ✅ Update by clicking on the todo itself
 ✅ Code split
 ✅ Split todo list as did with the input
-✅ Mark as completed but leave in place - line through
+✅ Mark as completed but leave in place - line through (Unhappy with the logic)
+✅ Mark as completed and move to completed todos and back. 
 

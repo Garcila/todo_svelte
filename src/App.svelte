@@ -31,12 +31,11 @@
 		newId = newId + 1;
 		newTodo = { id: newId, name: newTodo };
 		todos = [...todos, newTodo];
-		console.log(todos);
 	}
 
 	function deleteTodo(todo) {
-		todo.deleted = true;
-		console.log("todo deleted true ", todo);
+		console.log(todo);
+		todo.deleted = todo.deleted === false ? true : false;
 		todos = todos;
 	}
 

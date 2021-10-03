@@ -12,11 +12,20 @@
 		id={todo.id}
 		bind:value={todo.name}
 		bind:this={todoObj[todo.id]}
-		class={classCompleted ? "completed" : ""}
+		class={todo.deleted
+			? "completed"
+			: classCompleted
+			? "completed"
+			: ""}
 		on:blur={updateTodo(todo)}
 	/>
 	<button on:click={e => strikeTodo(todo)}>&check;</button>
-	<button on:click={deleteTodo(todo)}>&cross</button>
+	{#if !todo.deleted}
+		<button on:click={deleteTodo(todo)}>&cross</button>
+	{/if}
+	{#if todo.deleted}
+		<button on:click={deleteTodo(todo)}>&#9853</button>
+	{/if}
 </span>
 
 <style>

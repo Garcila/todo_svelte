@@ -20,5 +20,4 @@
 	{/if}
 {/each}
 
-<style>
-</style>
+<style></style>

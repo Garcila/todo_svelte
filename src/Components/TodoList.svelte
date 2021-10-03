@@ -1,6 +1,5 @@
 <script>
 	import TodoItem from "./TodoItem.svelte";
-
 	export let todos;
 	export let deleteTodo;
 	export let updateTodo;
@@ -10,7 +9,7 @@
 
 <h2>Active Todos</h2>
 {#each todos as todo (todo.id)}
-	{#if todo.deleted === false}
+	{#if !todo.deleted}
 		<TodoItem
 			{todo}
 			{updateTodo}
