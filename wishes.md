@@ -1,7 +1,7 @@
 TODO
-🏗
+🏗 Add Store.  Started working on the Store.  I copied the functions as they are in the store.  the writable object can contain my todos array?  I have to try and see if the data can live there for now... maybe that is just the current todo... not sure.
 
-Add Store
+
 Add CSS fanciness to mark todos as completed
 Save to localStorage
 Save to database

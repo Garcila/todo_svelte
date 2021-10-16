@@ -2,6 +2,7 @@
 	import InputTodo from "./Components/InputTodo.svelte";
 	import TodoList from "./Components/TodoList.svelte";
 	import DeletedList from "./Components/DeletedList.svelte";
+	import { count } from "./Components/stores.js";
 
 	export let todos = [
 		{
@@ -34,7 +35,6 @@
 	}
 
 	function deleteTodo(todo) {
-		console.log(todo);
 		todo.deleted = todo.deleted === false ? true : false;
 		todos = todos;
 	}
@@ -74,6 +74,16 @@
 			{todoObj}
 		/>
 	</ul>
+	<h1>count is {$count.a}</h1>
+	<button on:click={()=>count.increment('a')}>+</button>
+	<button on:click={()=>count.decrement('a')}>-</button>
+	<button on:click={()=>count.resetOne('a')}>reset</button>
+	<h1>count is {$count.b}</h1>
+	<button on:click={()=>count.increment('b')}>+</button>
+	<button on:click={()=>count.decrement('b')}>-</button>
+	<button on:click={()=>count.resetOne('b')}>reset</button>
+	<h1>Master Reset</h1>
+	<button on:click={count.reset}>Master Reset</button>
 </main>
 
 <style>
