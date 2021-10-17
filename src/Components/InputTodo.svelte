@@ -1,20 +1,19 @@
 <script>
-	export let addTodo;
-	export let newTodo;
+	import { todos } from "./stores";
 
-	function resetForm() {
-		newTodo = "";
+	function resetForm(e) {
+		todos.newTodo = ''
 	}
 </script>
 
 <form
 	id="todoForm"
-	on:submit|preventDefault={(addTodo(newTodo), resetForm())}
+	on:submit|preventDefault={(todos.addTodo(todos.newTodo),resetForm())}
 >
 	<input
 		type="text"
 		name="new-todo"
 		placeholder="Add New Todo"
-		bind:value={newTodo}
+		bind:value={todos.newTodo}
 	/>
 </form>

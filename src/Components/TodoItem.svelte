@@ -1,9 +1,6 @@
 <script>
+	import {todos} from './stores';
 	export let todo;
-	export let deleteTodo;
-	export let updateTodo;
-	export let strikeTodo;
-	export let todoObj;
 	let classCompleted = false;
 </script>
 
@@ -11,20 +8,19 @@
 	><input
 		id={todo.id}
 		bind:value={todo.name}
-		bind:this={todoObj[todo.id]}
 		class={todo.deleted
 			? "completed"
 			: classCompleted
 			? "completed"
-			: ""}
-		on:blur={updateTodo(todo)}
+			: "" || todo.completed ? "completed":""}
+		on:blur={todos.updateTodo(todo)}
 	/>
-	<button on:click={e => strikeTodo(todo)}>&check;</button>
+	<button on:click={todos.strikeTodo(todo)}>&check;</button>
 	{#if !todo.deleted}
-		<button on:click={deleteTodo(todo)}>&cross</button>
+		<button on:click={todos.deleteTodo(todo)}>&cross</button>
 	{/if}
 	{#if todo.deleted}
-		<button on:click={deleteTodo(todo)}>&#9853</button>
+		<button on:click={todos.deleteTodo(todo)}>&#9853</button>
 	{/if}
 </span>
 
@@ -34,3 +30,6 @@
 		opacity: 0.5;
 	}
 </style>
+
+
+
