@@ -2,8 +2,6 @@
 	import { quintOut } from "svelte/easing";
 	import { crossfade } from "svelte/transition";
 	import { todos } from "./stores";
-	import TodoItem from "./TodoItem.svelte";
-	import DeletedItem from "./DeletedItem.svelte";
 
 	// Code for the todo animation between in Active and Deleted
 	const [send, receive] = crossfade({
