@@ -29,10 +29,10 @@
 	<input
 		id={todo.id}
 		bind:value={todo.name}
+		class="deleted completed"
 		on:blur={todos.updateTodo(todo)}
-		class={todo.completed ? "completed" : ""}
 	/>
-	<button on:click={todos.strikeTodo(todo)}>&check;</button>
+	<!-- <button on:click={todos.strikeTodo(todo)}>&check;</button> -->
 	{#if !todo.deleted}
 		<button on:click={todos.deleteTodo(todo)}>&cross</button>
 	{/if}
@@ -41,13 +41,13 @@
 	{/if}
 </label>
 
-<!-- class={todo.deleted ? "completed" : ""} -->
+<!-- {todo.deleted ? "completed" : ""} -->
 
-<!-- class={todo.deleted 
-		   ? "completed"
-		   : classCompleted
-		   ? "completed"
-		: "" || todo.completed ? "completed":"" }  -->
+<!-- class={todo.deleted
+	? "completed"
+	: classCompleted
+	? "completed"
+	: "" || todo.completed ? "completed":""} -->
 <style>
 	.completed {
 		text-decoration: line-through;

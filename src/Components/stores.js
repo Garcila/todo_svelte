@@ -46,6 +46,13 @@ function manageTodos() {
 				return todos;
 			});
 		},
+		annihilateTodo: todo => {
+			update(todos => {
+				let filtered = todos.filter(t => todo.id != t.id);
+				todos = filtered;
+				return todos;
+			});
+		},
 		updateTodo: todo => {
 			update(todos => {
 				let changeTodo = todos.filter(t => t.id === todo.id);
