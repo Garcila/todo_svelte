@@ -3,9 +3,11 @@
 	import { crossfade } from "svelte/transition";
 	import { todos } from "./stores";
 
+	todos.useLocalStorage();
+
 	// Code for the todo animation between in Active and Deleted
 	const [send, receive] = crossfade({
-		duration: d => Math.sqrt(d * 200),
+		duration: d => Math.sqrt(d * 2200),
 
 		fallback(node, params) {
 			const style = getComputedStyle(node);
@@ -46,6 +48,7 @@
 			class="deleted completed"
 			on:blur={todos.updateTodo(todo)}
 		/>
+
 		<button on:click={todos.deleteTodo(todo)}>&#9853</button>
 		<button on:click={todos.annihilateTodo(todo)}>💀</button>
 	</label>

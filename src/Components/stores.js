@@ -1,9 +1,7 @@
 import { writable } from "svelte/store";
+import { v4 as uuidv4 } from "uuid";
 
-// FIXME: newId is just the starting value.  When DB fix
-let newId = 5;
-
-function manageTodos() {
+function manageTodos(key, startValue) {
 	const { subscribe, set, update } = writable([
 		{
 			id: 1,
@@ -29,9 +27,8 @@ function manageTodos() {
 		subscribe,
 		addTodo: newTodo => {
 			update(todos => {
-				newId = newId + 1;
 				newTodo = {
-					id: newId,
+					id: uuidv4(),
 					name: newTodo,
 					completed: false,
 					deleted: false,
@@ -66,7 +63,37 @@ function manageTodos() {
 				return todos;
 			});
 		},
+		// LOCAL STORAGE IMPLEMENTATION
+		useLocalStorage: () => {
+			const json = localStorage.getItem(key);
+			if (json) {
+				set(JSON.parse(json));
+			}
+
+			subscribe(current => {
+				localStorage.setItem(key, JSON.stringify(current));
+			});
+		},
 	};
 }
 
-export const todos = manageTodos();
+export const todos = manageTodos("todos", [
+	{
+		id: 1,
+		name: "carrot",
+		completed: false,
+		deleted: true,
+	},
+	{
+		id: 2,
+		name: "grape",
+		completed: false,
+		deleted: false,
+	},
+	{
+		id: 3,
+		name: "cherry",
+		completed: false,
+		deleted: false,
+	},
+]);
