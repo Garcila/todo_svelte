@@ -1,27 +1,9 @@
 import { writable } from "svelte/store";
 import { v4 as uuidv4 } from "uuid";
 
+// the key and startValue are used to create the object to store in Local Storage
 function manageTodos(key, startValue) {
-	const { subscribe, set, update } = writable([
-		{
-			id: 1,
-			name: "carrot",
-			completed: false,
-			deleted: true,
-		},
-		{
-			id: 2,
-			name: "grape",
-			completed: false,
-			deleted: false,
-		},
-		{
-			id: 3,
-			name: "cherry",
-			completed: false,
-			deleted: false,
-		},
-	]);
+	const { subscribe, set, update } = writable([]);
 
 	return {
 		subscribe,
@@ -63,7 +45,7 @@ function manageTodos(key, startValue) {
 				return todos;
 			});
 		},
-		// LOCAL STORAGE IMPLEMENTATION
+		// Local Storage implementation
 		useLocalStorage: () => {
 			const json = localStorage.getItem(key);
 			if (json) {
@@ -77,23 +59,4 @@ function manageTodos(key, startValue) {
 	};
 }
 
-export const todos = manageTodos("todos", [
-	{
-		id: 1,
-		name: "carrot",
-		completed: false,
-		deleted: true,
-	},
-	{
-		id: 2,
-		name: "grape",
-		completed: false,
-		deleted: false,
-	},
-	{
-		id: 3,
-		name: "cherry",
-		completed: false,
-		deleted: false,
-	},
-]);
+export const todos = manageTodos("todos", []);
