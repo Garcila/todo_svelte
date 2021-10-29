@@ -3,6 +3,10 @@
 	import { crossfade } from "svelte/transition";
 	import { todos } from "./stores";
 
+	$: activeTodos = $todos.filter(todo => !todo.deleted);
+	$: deletedTodos = $todos.filter(todo => todo.deleted);
+
+	// use Local Storage from the Store
 	todos.useLocalStorage();
 
 	// Code for the todo animation between in Active and Deleted
@@ -26,8 +30,7 @@
 </script>
 
 <h2>Active Todos</h2>
-
-{#each $todos.filter(todo => !todo.deleted) as todo (todo.id)}
+{#each activeTodos as todo (todo.id)}
 	<label in:receive={{ key: todo.id }} out:send={{ key: todo.id }}>
 		<input
 			id={todo.id}
@@ -40,7 +43,7 @@
 	</label>
 {/each}
 <h2>Completed Todos</h2>
-{#each $todos.filter(todo => todo.deleted) as todo (todo.id)}
+{#each deletedTodos as todo (todo.id)}
 	<label in:receive={{ key: todo.id }} out:send={{ key: todo.id }}>
 		<input
 			id={todo.id}

@@ -1,5 +1,5 @@
 TODO
-🏗
+🏗 Todos completed and deleted. I have a classCompleted that can be simplified with just the properties of the todo
 
 - Find a style to go for CSS. Will go for Neumorphism as in Figma's design kit
 - SVG transitions could help add flare to completed or deleting a todo
@@ -13,7 +13,8 @@ TODO
 Save to database
 GraphQL
 Authentication Login/Sign up
-Todos completed and deleted. I have a classCompleted that can be simplified with just the properties of the todo
+
+Delete branches :)
 
 DONE
 ✅ Save to localStorage
