@@ -7,13 +7,14 @@ function manageTodos(key, startValue) {
 
 	return {
 		subscribe,
-		addTodo: newTodo => {
+		addTodo: (newTodo, colour) => {
 			update(todos => {
 				newTodo = {
 					id: uuidv4(),
 					name: newTodo,
 					completed: false,
 					deleted: false,
+					colour: colour,
 				};
 				return [...todos, newTodo];
 			});
