@@ -36,7 +36,8 @@
 			id={todo.id}
 			bind:value={todo.name}
 			on:blur={todos.updateTodo(todo)}
-			class={todo.completed ? "completed" : ""}
+			style={`background-color: #${todo.colour};`}
+			class={todo.completed ? `completed ${todo.colour}` : ""}
 		/>
 		<button on:click={todos.strikeTodo(todo)}>&check;</button>
 		<button on:click={todos.deleteTodo(todo)}>&cross</button>
@@ -48,6 +49,7 @@
 		<input
 			id={todo.id}
 			bind:value={todo.name}
+			style={`background-color: #${todo.colour};`}
 			class="deleted completed"
 			on:blur={todos.updateTodo(todo)}
 		/>
